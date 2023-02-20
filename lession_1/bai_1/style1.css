@@ -1,0 +1,33 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.web {
+    display: flex;
+    width: 900px;
+    margin: 0 auto;
+}
+
+.img-web-wrap {
+    width: 50%;
+    height: 50%;
+    /* cách 1 */
+    display: flex;
+    justify-content: center;
+
+    /* cách 2 */
+    /* text-align: center; */
+
+    padding: 100px 10px 0px;
+    margin: auto 0;
+}
+
+.img1{
+    width: 50%;
+}
+
+.img2 {
+    width: 50%;
+}

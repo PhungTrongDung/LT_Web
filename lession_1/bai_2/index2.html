@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="style2.css"> -->
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .web {
+            width: 100vw;
+            height: 100vh;
+        }
+
+
+        .web-wrap {
+            width: 250px;
+            height: 400px;
+            margin: 0 auto;
+            padding-top: 100px;
+        }
+
+        .web-main {
+            width: 100%;
+            height: 100%;
+            border: 2px solid black;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* screen */
+        .web-screen {
+            width: 100%;
+            height: 30%;
+            border: 1px solid black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(195, 191, 191);
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+
+
+        }
+
+        .screen-label {
+            width: 90%;
+            height: 70%;
+            border: 1px solid black;
+            border-radius: 5px;
+            padding: 5px 8px;
+            font-size: 1.6rem;
+        }
+
+        .web-cal label {
+            width: 100%;
+            height: 100%;
+            size: "20";
+            text-overflow: clip;
+            white-space: normal;
+            overflow: hidden;
+        }
+
+
+        .web-cal .cal {
+            width: 100%;
+            height: 100%;
+        }
+
+
+        .web-res .res {
+            width: 100%;
+            height: 100%;
+        }
+
+
+        /* keyboard */
+        .web-keyboard {
+            /* width: 50%; */
+            height: 70%;
+            border-top: 1px solid black;
+            border-bottom: 1px solid black;
+            background-color: rgb(195, 191, 191);
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+        }
+
+        .btn {
+            border: 1px solid black;
+            border-radius: 5px;
+            background-color: white;
+            cursor: pointer;
+        }
+
+        .btn-result {
+            background-color: rgb(206, 102, 120);
+            /* cursor: pointer; */
+        }
+
+        .btn-ac {
+            background-color: rgb(206, 102, 120);
+            /* cursor: pointer; */
+        }
+
+        .col-4 {
+            width: 20%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+        }
+
+        .row-4 {
+            display: flex;
+            height: 20%;
+            width: 100%;
+            color: while;
+            justify-content: space-around;
+            margin: 3.2% 0;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- BT :
+        cho 2 input nhập vào 2 số 
+        1 button 
+        click button hiển thị kết quả phép cộng
+     -->
+
+    <div class="web">
+        <div class="web-wrap">
+            <div class="web-main">
+                <div class="web-screen">
+
+                    <input class="screen-label" type="text" id="result" />
+                    <!-- <label class="screen-label" id="result" for=""></label> -->
+
+                </div>
+
+                <div class="web-keyboard">
+                    <div class="row-4 keyboard-row1">
+                        <button onclick="display('1')" class="col-4 btn" value="1">1</button>
+                        <button onclick="display('2')" class="col-4 btn" value="2">2</button>
+                        <button onclick="display('3')" class="col-4 btn" value="3">3</button>
+                        <button onclick="clearSc()" class="col-4 btn btn-ac" value="AC">AC</button>
+                    </div>
+
+                    <div class="row-4 keyboard-row2">
+                        <button onclick="display('4')" class="col-4 btn" value="4">4</button>
+                        <button onclick="display('5')" class="col-4 btn" value="5">5</button>
+                        <button onclick="display('6')" class="col-4 btn" value="6">6</button>
+                        <button onclick="display('/')" class="col-4 btn" value="/">/</button>
+                    </div>
+
+                    <div class="row-4 keyboard-row3">
+                        <button onclick="display('7')" class="col-4 btn" value="7">7</button>
+                        <button onclick="display('8')" class="col-4 btn" value="8">8</button>
+                        <button onclick="display('9')" class="col-4 btn" value="9">9</button>
+                        <button onclick="display('-')" class="col-4 btn" value="-">-</button>
+                    </div>
+
+                    <div class="row-4 keyboard-row3">
+                        <button onclick="display('0')" class="col-4 btn" value="0">0</button>
+                        <button onclick="calculation()" class="col-4 btn btn-result" value="=">=</button>
+                        <button onclick="display('*')" class="col-4 btn" value="*">*</button>
+                        <button onclick="display('+')" class="col-4 btn" value="+">+</button>
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <script>
+
+        const clearSc = () => {
+            document.getElementById("result").value = "";
+        }
+
+        const display = (value) => {
+            document.getElementById("result").value += value;
+            var p = document.getElementById("result").value;
+        }
+
+
+
+        const calculation = () => {
+            var x = document.getElementById("result").value;
+            var res = eval(x);
+            document.getElementById("result").value = res;
+        }
+
+    </script>
+
+</body>
+
+</html>
